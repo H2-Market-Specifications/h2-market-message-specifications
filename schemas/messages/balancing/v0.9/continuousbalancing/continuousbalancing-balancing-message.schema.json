@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/balancing/v0.9/continuousbalancing/continuousbalancing-balancing-message.schema.json",
+  "title": "h2BalancingMessage",
+  "description": "Message for transmitting balancing figures from the Hydrogen Market Area Manager to a Balancing Group Responsible Party.",
+  "allOf": [
+    {
+      "$ref": "../balancing-message-base.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "object",
+          "properties": {
+            "subType": {
+              "const": "ContinuousBalancing"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

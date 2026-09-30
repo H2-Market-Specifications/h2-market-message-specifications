@@ -1,0 +1,43 @@
+{
+	"message": {
+		"type": "ALLOCATION",
+		"subType": "Nomination",
+		"version": "0.9",
+		"documentNumber": "ABC123456789",
+		"creationDateTime": "2026-03-21T23:54:00Z"
+	},
+	"parties": {
+		"sender": {
+			"partnerCode": "9700123456789",
+			"partnerRole": "HydrogenMarketAreaManager"
+		},
+		"recipient": {
+			"partnerCode": "9700987654321",
+			"partnerRole": "BalancingGroupResponsibleParty"
+		}
+	},
+	"allocationData": {
+		"period": "2026-03-21T23:00:00Z/PT1H",
+		"unit": "kWh",
+		"granularity": "PT1H",
+		"asOfDate": "2026-03-21T23:51:00Z",
+		"allocations": [
+			{
+				"internalAccount": "THE0BBH000400000",
+				"location": { "locationCode": "abc", "locationType": "VirtualTradingPoint" },
+				"flowDirection": "Entry",
+				"values": [
+					{ "timestamp": "2026-03-21T23:00:00Z", "quantity": 84 }
+				]
+			},
+			{
+				"internalAccount": "THE0BBH000400000",
+				"location": { "locationCode": "abc", "locationType": "VirtualTradingPoint" },
+				"flowDirection": "Exit",
+				"values": [
+					{ "timestamp": "2026-03-21T23:00:00Z", "quantity": 14 }
+				]
+			}
+		]
+	}
+}

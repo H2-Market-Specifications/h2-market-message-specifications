@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/measurement/v0.9/final/final-measurement-message.schema.json",
+  "title": "h2FinalMeasurementMessage",
+  "description": "Message for transmitting final hourly measurement data from a Hydrogen Grid Operator to the Hydrogen Market Area Manager or, where applicable, to the Transport Customer.",
+  "allOf": [
+    {
+      "$ref": "../measurement-message-base.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "object",
+          "properties": {
+            "subType": {
+              "const": "Final"
+            }
+          }
+        },
+        "measurementData": {
+          "type": "object",
+          "properties": {
+            "granularity": {
+              "const": "PT1H"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

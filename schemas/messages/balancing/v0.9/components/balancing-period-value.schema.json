@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/balancing/v0.9/components/balancing-period-value.schema.json",
+  "title": "balancingPeriodValue",
+  "description": "One balancing quantity for an explicitly bounded UTC time interval.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "periodStart",
+    "periodEnd",
+    "quantity",
+    "quality"
+  ],
+  "properties": {
+    "periodStart": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+      "description": "UTC timestamp marking the inclusive start of the balancing interval."
+    },
+    "periodEnd": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+      "description": "UTC timestamp marking the exclusive end of the balancing interval."
+    },
+    "quantity": {
+      "type": "number",
+      "description": "Balancing quantity for the interval in the unit defined by balancingData.unit. Positive and negative values are permitted."
+    },
+    "quality": {
+      "type": "string",
+      "enum": [
+        "preliminary",
+        "prognosis",
+        "closed",
+        "final"
+      ],
+      "description": "Quality or processing status of the balancing quantity.",
+      "x-enumDescriptions": {
+        "preliminary": "The value is based on preliminary data and may still be updated within the applicable balancing process.",
+        "prognosis": "The value is a forecast for a future interval or a future balancing state.",
+        "closed": "The value has been fixed after completion of the relevant balancing period and is no longer changed within the continuous balancing process.",
+        "final": "The value is final and is based on final data or final allocations."
+      }
+    },
+    "helperCauser": {
+      "type": "string",
+      "enum": [
+        "Helper",
+        "Causer"
+      ],
+      "description": "Designation of the balancing group as Helper or Causer for the relevant cumulative balancing value.",
+      "x-enumDescriptions": {
+        "Helper": "The balancing group contributes positively to the relevant balancing situation according to the applicable Helper/Causer assessment.",
+        "Causer": "The balancing group contributes negatively to the relevant balancing situation according to the applicable Helper/Causer assessment."
+      }
+    }
+  }
+}

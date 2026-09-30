@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/location.schema.json",
+  "title": "location",
+  "description": "Location reference.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "locationCode",
+    "locationType"
+  ],
+  "properties": {
+    "locationCode": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32,
+      "pattern": "^[A-Za-z0-9._-]+$",
+      "description": "Location identifier."
+    },
+    "locationType": {
+      "type": "string",
+      "enum": [
+        "EntryPointProductionFacility",
+        "ExitPointEndConsumer",
+        "StorageConnectionPoint",
+        "TerminalConnectionPoint",
+        "InterconnectionPoint",
+        "ClusterExchangePoint",
+        "VirtualTradingPoint"
+      ],
+      "description": "Type of location identifier.",
+      "x-enumDescriptions": {
+        "EntryPointProductionFacility": "Entry point from a hydrogen production facility (e.g. electrolyser) into the hydrogen network.",
+        "ExitPointEndConsumer": "Exit point at which hydrogen is withdrawn from the hydrogen network for delivery to an end consumer.",
+        "StorageConnectionPoint": "Connection point to a hydrogen storage facility.",
+        "TerminalConnectionPoint": "Connection point to a hydrogen terminal facility.",
+        "InterconnectionPoint": "Border crossing or interconnection point between hydrogen networks or market areas.",
+        "ClusterExchangePoint": "Point used for the exchange or transport of hydrogen between clusters.",
+        "VirtualTradingPoint": "Virtual tradingpoint at which hydrogen quantities can be transferred virtually between balancing groups."
+      }
+    }
+  }
+}

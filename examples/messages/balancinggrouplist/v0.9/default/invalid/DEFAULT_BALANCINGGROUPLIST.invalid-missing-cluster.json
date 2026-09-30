@@ -1,0 +1,26 @@
+{
+	"message": {
+		"type": "BALANCINGGROUPLIST",
+		"subType": "Default",
+		"version": "0.9",
+		"documentNumber": "ABC123456789",
+		"creationDateTime": "2026-03-21T12:00:00Z"
+	},
+	"parties": {
+		"sender": { "partnerCode": "9700987654321","partnerRole": "HydrogenMarketAreaManager" },
+		"recipient" : { "partnerCode": "9700123456789","partnerRole": "HydrogenGridOperator" }
+	},
+	"balancingGroupList": [
+        {
+            "internalAccount": "THEHBH2500000000",
+            "from": "2027-12-31T23:00:00Z",
+            "to": "2028-12-31T22:00:00Z",
+            "marketPartner": {
+                "marketPartnerCode": "9700123456789",
+                "marketPartnerName": "BKV A",
+                "marketPartnerFrom": "2027-12-31T23:00:00Z",
+                "marketPartnerTo": "2028-12-31T22:00:00Z"
+            }
+        }
+	]
+}

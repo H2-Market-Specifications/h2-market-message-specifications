@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/nominationresponse/v0.9/nomination-response-message-base.schema.json",
+  "title": "h2NominationResponseMessage",
+  "description": "Base schema for transmitting processed and confirmed nomination quantities from a Hydrogen Grid Operator or Hydrogen Market Area Manager to a Balancing Group Responsible Party.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "message",
+    "parties",
+    "nominationResponseData"
+  ],
+  "properties": {
+    "message": {
+      "allOf": [
+        {
+          "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/message.schema.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "NOMINATIONRESPONSE"
+            },
+            "version": {
+              "const": "0.9"
+            }
+          }
+        }
+      ]
+    },
+    "parties": {
+      "allOf": [
+        {
+          "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/parties.schema.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "sender": {
+              "type": "object",
+              "properties": {
+                "partnerRole": {
+                  "enum": [
+                    "HydrogenGridOperator",
+                    "HydrogenMarketAreaManager"
+                  ]
+                }
+              }
+            },
+            "recipient": {
+              "type": "object",
+              "properties": {
+                "partnerRole": {
+                  "const": "BalancingGroupResponsibleParty"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "nominationResponseData": {
+      "$ref": "https://h2-market.example/message-specifications/schemas/messages/nominationresponse/v0.9/components/nomination-response-data.schema.json"
+    }
+  }
+}

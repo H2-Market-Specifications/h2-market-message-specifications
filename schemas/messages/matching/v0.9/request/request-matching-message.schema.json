@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/matching/v0.9/request/request-matching-message.schema.json",
+  "title": "h2MatchingRequestMessage",
+  "description": "Request message used by the initiating matching partner to transmit matching data to the counterpart matching partner.",
+  "allOf": [
+    {
+      "$ref": "../matching-message-base.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "object",
+          "properties": {
+            "subType": {
+              "const": "Request"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

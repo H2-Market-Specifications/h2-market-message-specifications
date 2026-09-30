@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/nominationresponse/v0.9/vtp/vtp-nominationresponse-message.schema.json",
+  "title": "h2VtpNominationResponseMessage",
+  "description": "Message for transmitting the processed and confirmed result of a Virtual Trading Point nomination from the Hydrogen Market Area Manager to the Balancing Group Responsible Party.",
+  "allOf": [
+    {
+      "$ref": "../nomination-response-message-base.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "object",
+          "properties": {
+            "subType": {
+              "const": "VTP"
+            }
+          }
+        },
+        "parties": {
+          "type": "object",
+          "properties": {
+            "sender": {
+              "type": "object",
+              "properties": {
+                "partnerRole": {
+                  "const": "HydrogenMarketAreaManager"
+                }
+              }
+            },
+            "recipient": {
+              "type": "object",
+              "properties": {
+                "partnerRole": {
+                  "const": "BalancingGroupResponsibleParty"
+                }
+              }
+            }
+          }
+        },
+        "nominationResponseData": {
+          "type": "object",
+          "properties": {
+            "location": {
+              "type": "object",
+              "properties": {
+                "locationType": {
+                  "const": "VirtualTradingPoint"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

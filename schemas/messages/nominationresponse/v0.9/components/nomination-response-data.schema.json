@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/nominationresponse/v0.9/components/nomination-response-data.schema.json",
+  "title": "nominationResponseData",
+  "description": "Nomination response context containing the location, response period, hourly granularity, unit, internal account and account-specific response time series.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "location",
+    "period",
+    "granularity",
+    "unit",
+    "internalAccount",
+    "nominationResponses"
+  ],
+  "properties": {
+    "location": {
+      "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/location.schema.json"
+    },
+    "period": {
+      "type": "string",
+      "pattern": "^.+/.+$",
+      "description": "Period covered by the nomination response data, represented as an ISO 8601 interval or duration expression."
+    },
+    "granularity": {
+      "type": "string",
+      "const": "PT1H",
+      "description": "Duration of each nomination response interval. PT1H represents one hour."
+    },
+    "unit": {
+      "type": "string",
+      "const": "kWh",
+      "description": "Unit of the nomination response quantities."
+    },
+    "internalAccount": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Internal balancing group identifier to which the nomination response applies."
+    },
+    "nominationResponses": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Nomination response data for one or more external accounts or matching counterparts.",
+      "items": {
+        "$ref": "https://h2-market.example/message-specifications/schemas/messages/nominationresponse/v0.9/components/nomination-response.schema.json"
+      }
+    }
+  }
+}

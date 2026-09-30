@@ -1,0 +1,5 @@
+# Default review ownership for all repository changes.
+# The team below must exist in the GitHub organization that owns this repository.
+# Team code owners must be visible and have write access to be assigned by GitHub.
+# If the repository owner is different, replace the organization prefix accordingly.
+* @H2-Market-Specifications/maintainers

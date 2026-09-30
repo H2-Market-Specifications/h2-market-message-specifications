@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/catalog/message-catalog.schema.json",
+  "title": "h2MessageCatalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "catalogVersion",
+    "messages"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "catalogVersion": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "namingConventions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "messages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "businessNameDe",
+          "message",
+          "schema",
+          "schemaId",
+          "examples",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "businessNameDe": {
+            "type": "string"
+          },
+          "message": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "subType",
+              "version"
+            ],
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "subType": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              }
+            }
+          },
+          "schema": {
+            "type": "string"
+          },
+          "schemaId": {
+            "type": "string",
+            "format": "uri"
+          },
+          "examples": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Draft",
+              "Review",
+              "Final",
+              "Deprecated"
+            ]
+          },
+          "ownerWorkingGroup": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

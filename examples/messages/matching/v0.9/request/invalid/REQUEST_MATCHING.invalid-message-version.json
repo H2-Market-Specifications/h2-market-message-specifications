@@ -1,0 +1,282 @@
+{
+  "message": {
+    "type": "MATCHING",
+    "subType": "Request",
+    "version": "2.0",
+    "documentNumber": "ABC123456789",
+    "creationDateTime": "2026-03-28T12:00:00Z"
+  },
+  "parties": {
+    "sender": {
+      "partnerCode": "9700200000000",
+      "partnerRole": "HydrogenGridOperator"
+    },
+    "recipient": {
+      "partnerCode": "9700200000001",
+      "partnerRole": "HydrogenGridOperator"
+    }
+  },
+  "matchingData": {
+    "period": "2026-03-28T23:00:00Z/P1D",
+    "granularity": "PT1H",
+    "unit": "kWh",
+    "location": {
+        "locationCode": "41262448133",
+        "locationType": "StorageConnectionPoint"
+    },
+    "accountSpecificData": [
+      {
+        "internalAccount": "THE0BBH000400000",
+        "externalAccount": "xyz1",
+        "timeSeries": [
+          {
+            "quantityType": "InternallyProcessedQuantity",
+            "values": [
+              {
+                "timestamp": "2026-03-28T23:00:00Z",
+                "quantity": 80,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T00:00:00Z",
+                "quantity": 95,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T01:00:00Z",
+                "quantity": 110,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T02:00:00Z",
+                "quantity": 73,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T03:00:00Z",
+                "quantity": 88,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T04:00:00Z",
+                "quantity": 102,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T05:00:00Z",
+                "quantity": 31,
+                "flowDirection": "Exit"
+              },
+              {
+                "timestamp": "2026-03-29T06:00:00Z",
+                "quantity": 24,
+                "flowDirection": "Exit"
+              },
+              {
+                "timestamp": "2026-03-29T07:00:00Z",
+                "quantity": 145,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T08:00:00Z",
+                "quantity": 126,
+                "flowDirection": "Exit"
+              },
+              {
+                "timestamp": "2026-03-29T09:00:00Z",
+                "quantity": 135,
+                "flowDirection": "Exit"
+              },
+              {
+                "timestamp": "2026-03-29T10:00:00Z",
+                "quantity": 138,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T11:00:00Z",
+                "quantity": 92,
+                "flowDirection": "Exit"
+              },
+              {
+                "timestamp": "2026-03-29T12:00:00Z",
+                "quantity": 51,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T13:00:00Z",
+                "quantity": 191,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T14:00:00Z",
+                "quantity": 185,
+                "flowDirection": "Exit"
+              },
+              {
+                "timestamp": "2026-03-29T15:00:00Z",
+                "quantity": 112,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T16:00:00Z",
+                "quantity": 179,
+                "flowDirection": "Exit"
+              },
+              {
+                "timestamp": "2026-03-29T17:00:00Z",
+                "quantity": 176,
+                "flowDirection": "Exit"
+              },
+              {
+                "timestamp": "2026-03-29T18:00:00Z",
+                "quantity": 193,
+                "flowDirection": "Exit"
+              },
+              {
+                "timestamp": "2026-03-29T19:00:00Z",
+                "quantity": 27,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T20:00:00Z",
+                "quantity": 114,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T21:00:00Z",
+                "quantity": 137,
+                "flowDirection": "Entry"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "internalAccount": "THE0BBH000400000",
+        "externalAccount": "xyz2",
+        "timeSeries": [
+          {
+            "quantityType": "InternallyProcessedQuantity",
+            "values": [
+              {
+                "timestamp": "2026-03-28T23:00:00Z",
+                "quantity": 89,
+                "flowDirection": "Exit"
+              },
+              {
+                "timestamp": "2026-03-29T00:00:00Z",
+                "quantity": 165,
+                "flowDirection": "Exit"
+              },
+              {
+                "timestamp": "2026-03-29T01:00:00Z",
+                "quantity": 31,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T02:00:00Z",
+                "quantity": 69,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T03:00:00Z",
+                "quantity": 38,
+                "flowDirection": "Exit"
+              },
+              {
+                "timestamp": "2026-03-29T04:00:00Z",
+                "quantity": 88,
+                "flowDirection": "Exit"
+              },
+              {
+                "timestamp": "2026-03-29T05:00:00Z",
+                "quantity": 50,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T06:00:00Z",
+                "quantity": 163,
+                "flowDirection": "Exit"
+              },
+              {
+                "timestamp": "2026-03-29T07:00:00Z",
+                "quantity": 187,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T08:00:00Z",
+                "quantity": 133,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T09:00:00Z",
+                "quantity": 114,
+                "flowDirection": "Exit"
+              },
+              {
+                "timestamp": "2026-03-29T10:00:00Z",
+                "quantity": 84,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T11:00:00Z",
+                "quantity": 110,
+                "flowDirection": "Exit"
+              },
+              {
+                "timestamp": "2026-03-29T12:00:00Z",
+                "quantity": 30,
+                "flowDirection": "Exit"
+              },
+              {
+                "timestamp": "2026-03-29T13:00:00Z",
+                "quantity": 88,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T14:00:00Z",
+                "quantity": 115,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T15:00:00Z",
+                "quantity": 94,
+                "flowDirection": "Exit"
+              },
+              {
+                "timestamp": "2026-03-29T16:00:00Z",
+                "quantity": 129,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T17:00:00Z",
+                "quantity": 105,
+                "flowDirection": "Exit"
+              },
+              {
+                "timestamp": "2026-03-29T18:00:00Z",
+                "quantity": 150,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T19:00:00Z",
+                "quantity": 113,
+                "flowDirection": "Exit"
+              },
+              {
+                "timestamp": "2026-03-29T20:00:00Z",
+                "quantity": 183,
+                "flowDirection": "Entry"
+              },
+              {
+                "timestamp": "2026-03-29T21:00:00Z",
+                "quantity": 89,
+                "flowDirection": "Exit"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

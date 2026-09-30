@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/measurement/v0.9/measurement-message-base.schema.json",
+  "title": "h2MeasurementMessage",
+  "description": "Base schema for transmitting measurement time series from a Hydrogen Grid Operator to the Hydrogen Market Area Manager or, where applicable, to the Transport Customer. The message contains measurement data before allocation to a balancing group.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "message",
+    "parties",
+    "measurementData"
+  ],
+  "properties": {
+    "message": {
+      "allOf": [
+        {
+          "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/message.schema.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "MEASUREMENT"
+            },
+            "version": {
+              "const": "0.9"
+            }
+          }
+        }
+      ]
+    },
+    "parties": {
+      "allOf": [
+        {
+          "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/parties.schema.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "sender": {
+              "type": "object",
+              "properties": {
+                "partnerRole": {
+                  "const": "HydrogenGridOperator"
+                }
+              }
+            },
+            "recipient": {
+              "type": "object",
+              "properties": {
+                "partnerRole": {
+                  "enum": [
+                    "HydrogenMarketAreaManager",
+                    "TransportCustomer"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "measurementData": {
+      "$ref": "https://h2-market.example/message-specifications/schemas/messages/measurement/v0.9/components/measurement-data.schema.json"
+    }
+  }
+}

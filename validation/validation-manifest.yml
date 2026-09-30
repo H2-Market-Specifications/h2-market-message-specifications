@@ -1,0 +1,98 @@
+# Map message examples/test payloads to their JSON Schema.
+# Invalid examples are expected to fail validation.
+
+validations:
+
+### MEASUREMENT MESSAGES
+  - schema: schemas/messages/measurement/v0.9/preliminary/preliminary-measurement-message.schema.json
+    valid:
+      - examples/messages/measurement/v0.9/preliminary/*.valid.json
+    invalid:
+      - examples/messages/measurement/v0.9/preliminary/invalid/*.json
+  - schema: schemas/messages/measurement/v0.9/final/final-measurement-message.schema.json
+    valid:
+      - examples/messages/measurement/v0.9/final/*.valid.json
+    invalid:
+      - examples/messages/measurement/v0.9/final/invalid/*.json
+
+### NOMINATION MESSAGES
+  - schema: schemas/messages/nomination/v0.9/physical/physical-nomination-message.schema.json
+    valid:
+      - examples/messages/nomination/v0.9/physical/*.valid.json
+    invalid:
+      - examples/messages/nomination/v0.9/physical/invalid/*.json
+  - schema: schemas/messages/nomination/v0.9/vtp/vtp-nomination-message.schema.json
+    valid:
+      - examples/messages/nomination/v0.9/vtp/*.valid.json
+    invalid:
+      - examples/messages/nomination/v0.9/vtp/invalid/*.json
+
+### NOMINATIONRESPONSE MESSAGES
+  - schema: schemas/messages/nominationresponse/v0.9/physical/physical-nominationresponse-message.schema.json
+    valid:
+      - examples/messages/nominationresponse/v0.9/physical/*.valid.json
+    invalid:
+      - examples/messages/nominationresponse/v0.9/physical/invalid/*.json
+  - schema: schemas/messages/nominationresponse/v0.9/vtp/vtp-nominationresponse-message.schema.json
+    valid:
+      - examples/messages/nominationresponse/v0.9/vtp/*.valid.json
+    invalid:
+      - examples/messages/nominationresponse/v0.9/vtp/invalid/*.json
+
+### MATCHING MESSAGES
+  - schema: schemas/messages/matching/v0.9/request/request-matching-message.schema.json
+    valid:
+      - examples/messages/matching/v0.9/request/*.valid.json
+    invalid:
+      - examples/messages/matching/v0.9/request/invalid/*.json
+  - schema: schemas/messages/matching/v0.9/response/response-matching-message.schema.json
+    valid:
+      - examples/messages/matching/v0.9/response/*.valid.json
+    invalid:
+      - examples/messages/matching/v0.9/response/invalid/*.json
+
+### BALANCING MESSAGES
+  - schema: schemas/messages/balancing/v0.9/continuousbalancing/continuousbalancing-balancing-message.schema.json
+    valid:
+      - examples/messages/balancing/v0.9/continuousbalancing/*.valid.json
+  - schema: schemas/messages/balancing/v0.9/differencequantities/differencequantities-balancing-message.schema.json
+    valid:
+      - examples/messages/balancing/v0.9/differencequantities/*.valid.json
+
+### QUANTITYDECLARATION MESSAGES
+  - schema: schemas/messages/quantitydeclaration/v0.9/default/default-quantitydeclaration-message.schema.json
+    valid:
+      - examples/messages/quantitydeclaration/v0.9/default/*.valid.json
+    invalid:
+      - examples/messages/quantitydeclaration/v0.9/default/invalid/*.json
+
+### QUANTITYDECLARATIONRESPONSE MESSAGES
+  - schema: schemas/messages/quantitydeclarationresponse/v0.9/default/default-quantitydeclarationresponse-message.schema.json
+    valid:
+      - examples/messages/quantitydeclarationresponse/v0.9/default/*.valid.json
+    invalid:
+      - examples/messages/quantitydeclarationresponse/v0.9/default/invalid/*.json
+
+### ALLOCATION MESSAGES
+  - schema: schemas/messages/allocation/v0.9/nomination/nomination-allocation-message.schema.json
+    valid:
+      - examples/messages/allocation/v0.9/nomination/*.valid.json
+    invalid:
+      - examples/messages/allocation/v0.9/nomination/invalid/*.json
+  - schema: schemas/messages/allocation/v0.9/quantitydeclaration/quantitydeclaration-allocation-message.schema.json
+    valid:
+      - examples/messages/allocation/v0.9/quantitydeclaration/*.valid.json
+    invalid:
+      - examples/messages/allocation/v0.9/quantitydeclaration/invalid/*.json
+  - schema: schemas/messages/allocation/v0.9/measurement/measurement-allocation-message.schema.json
+    valid:
+      - examples/messages/allocation/v0.9/measurement/*.valid.json
+    invalid:
+      - examples/messages/allocation/v0.9/measurement/invalid/*.json
+
+### BALANCINGGROUP LIST SUBMISSION MESSAGES
+  - schema: schemas/messages/balancinggrouplist/v0.9/default/default-balancinggrouplist-message.schema.json
+    valid:
+      - examples/messages/balancinggrouplist/v0.9/default/*.valid.json
+    invalid:
+      - examples/messages/balancinggrouplist/v0.9/default/invalid/*.json

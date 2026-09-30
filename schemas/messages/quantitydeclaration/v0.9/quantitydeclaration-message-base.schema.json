@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/quantitydeclaration/v0.9/quantitydeclaration-message-base.schema.json",
+  "title": "h2QuantityDeclarationMessage",
+  "description": "Base schema for transmitting quantity declarations from a Balancing Group Responsible Party to a Hydrogen Grid Operator for non-nomination-dependent network points.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "message",
+    "parties",
+    "quantityDeclarationData"
+  ],
+  "properties": {
+    "message": {
+      "allOf": [
+        {
+          "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/message.schema.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "QUANTITYDECLARATION"
+            },
+            "version": {
+              "const": "0.9"
+            }
+          }
+        }
+      ]
+    },
+    "parties": {
+      "allOf": [
+        {
+          "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/parties.schema.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "sender": {
+              "type": "object",
+              "properties": {
+                "partnerRole": {
+                  "const": "BalancingGroupResponsibleParty"
+                }
+              }
+            },
+            "recipient": {
+              "type": "object",
+              "properties": {
+                "partnerRole": {
+                  "const": "HydrogenGridOperator"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "quantityDeclarationData": {
+      "$ref": "https://h2-market.example/message-specifications/schemas/messages/quantitydeclaration/v0.9/components/quantity-declaration-data.schema.json"
+    }
+  }
+}

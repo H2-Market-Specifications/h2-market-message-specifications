@@ -1,0 +1,89 @@
+{
+	"message": {
+		"type": "ALLOCATION",
+		"subType": "Measurement",
+		"version": "0.9",
+		"documentNumber": "ABC123456789",
+		"creationDateTime": "2026-07-14T12:09:00Z"
+	},
+	"parties": {
+		"sender": {
+			"partnerCode": "9700123456789",
+			"partnerRole": "HydrogenMarketAreaManager"
+		},
+		"recipient": {
+			"partnerCode": "9700987654321",
+			"partnerRole": "BalancingGroupResponsibleParty"
+		}
+	},
+	"allocationData": {
+		"period": "2026-06-12T22:00:00Z/P1D",
+		"unit": "kWh",
+		"asOfDate": "2026-07-14T12:09:00Z",
+		"granularity": "PT1H",
+		"allocations": [
+			{
+				"internalAccount": "THE0BBH000400000",
+				"location": { "locationCode": "41262448132", "locationType": "EntryPointProductionFacility" },
+				"flowDirection": "Entry",
+				"values": [
+					{ "timestamp": "2026-06-12T22:00:00Z", "quantity": 84, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-12T23:00:00Z", "quantity": 117, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T00:00:00Z", "quantity": 63, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T01:00:00Z", "quantity": 142, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T02:00:00Z", "quantity": 98, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T03:00:00Z", "quantity": 76, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T04:00:00Z", "quantity": 131, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T05:00:00Z", "quantity": 45, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T06:00:00Z", "quantity": 109, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T07:00:00Z", "quantity": 156, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T08:00:00Z", "quantity": 88, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T09:00:00Z", "quantity": 174, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T10:00:00Z", "quantity": 52, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T11:00:00Z", "quantity": 123, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T12:00:00Z", "quantity": 67, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T13:00:00Z", "quantity": 145, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T14:00:00Z", "quantity": 91, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T15:00:00Z", "quantity": 38, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T16:00:00Z", "quantity": 158, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T17:00:00Z", "quantity": 112, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T18:00:00Z", "quantity": 73, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T19:00:00Z", "quantity": 136, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T20:00:00Z", "quantity": 59, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T21:00:00Z", "quantity": 101, "status": "measured", "quality": "final" }
+				]
+			},
+			{
+				"internalAccount": "THE0BBH000400000",
+				"location": { "locationCode": "41262448133", "locationType": "ExitPointEndConsumer" },
+				"flowDirection": "Exit",
+				"values": [
+					{ "timestamp": "2026-06-12T22:00:00Z", "quantity": 129, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-12T23:00:00Z", "quantity": 74, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T00:00:00Z", "quantity": 183, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T01:00:00Z", "quantity": 46, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T02:00:00Z", "quantity": 115, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T03:00:00Z", "quantity": 92, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T04:00:00Z", "quantity": 158, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T05:00:00Z", "quantity": 37, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T06:00:00Z", "quantity": 143, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T07:00:00Z", "quantity": 81, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T08:00:00Z", "quantity": 166, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T09:00:00Z", "quantity": 54, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T10:00:00Z", "quantity": 103, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T11:00:00Z", "quantity": 132, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T12:00:00Z", "quantity": 69, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T13:00:00Z", "quantity": 188, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T14:00:00Z", "quantity": 47, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T15:00:00Z", "quantity": 121, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T16:00:00Z", "quantity": 87, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T17:00:00Z", "quantity": 154, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T18:00:00Z", "quantity": 61, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T19:00:00Z", "quantity": 139, "status": "measured", "quality": "final" },
+					{ "timestamp": "2026-06-13T20:00:00Z", "quantity": 96, "status": "estimated", "quality": "final" },
+					{ "timestamp": "2026-06-13T21:00:00Z", "quantity": 72, "status": "measured", "quality": "final" }
+				]
+			}
+		]
+	}
+}

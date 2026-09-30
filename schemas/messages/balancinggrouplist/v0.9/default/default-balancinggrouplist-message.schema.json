@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/balancinggrouplist/v0.9/default/default-balancinggrouplist-message.schema.json",
+  "title": "h2DefaultBalancingGroupListMessage",
+  "description": "Schema for the default balancing group list message.",
+  "allOf": [
+    {
+      "$ref": "../balancinggrouplist-message-base.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "object",
+          "properties": {
+            "subType": {
+              "const": "Default"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

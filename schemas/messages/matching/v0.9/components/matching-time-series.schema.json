@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/matching/v0.9/components/matching-time-series.schema.json",
+  "title": "matchingTimeSeries",
+  "description": "Time series of quantities used within the request of the matching or the transmission of the matching results for one quantity type, account pair and matching period. Values must be ordered by ascending timestamp.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "quantityType",
+    "values"
+  ],
+  "properties": {
+    "quantityType": {
+      "type": "string",
+      "enum": [
+        "InternallyProcessedQuantity",
+        "InternallyProcessedQuantityCounterpart",
+        "ConfirmedQuantity",
+        "RequestedQuantity"
+      ],
+      "description": "Type of quantity represented by the time series.",
+      "x-enumDescriptions": {
+        "InternallyProcessedQuantity": "Quantity processed internally by the sender for the relevant account, location and time interval.",
+        "InternallyProcessedQuantityCounterpart": "Quantity processed internally by the counterpart matching partner for the relevant account, location and time interval.",
+        "ConfirmedQuantity": "Quantity confirmed as the result of the matching process.",
+        "RequestedQuantity": "Quantity requested by the matching partner for the relevant account, location and time interval."
+      }
+    },
+    "values": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Chronologically ordered timeseries values. Each value represents the quantity for one interval. The interval duration is defined by matchingData.granularity.",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/time-series-value.schema.json"
+          },
+          {
+            "type": "object",
+            "required": [
+              "flowDirection"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

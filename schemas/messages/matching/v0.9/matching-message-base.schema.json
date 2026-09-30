@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/matching/v0.9/matching-message-base.schema.json",
+  "title": "h2MatchingMessage",
+  "description": "Base schema for transmitting matching data between two matching partners for a specific network location.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "message",
+    "parties",
+    "matchingData"
+  ],
+  "properties": {
+    "message": {
+      "allOf": [
+        {
+          "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/message.schema.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "MATCHING"
+            },
+            "version": {
+              "const": "0.9"
+            }
+          }
+        }
+      ]
+    },
+    "parties": {
+      "allOf": [
+        {
+          "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/parties.schema.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "sender": {
+              "type": "object",
+              "properties": {
+                "partnerRole": {
+                  "const": "HydrogenGridOperator"
+                }
+              }
+            },
+            "recipient": {
+              "type": "object",
+              "properties": {
+                "partnerRole": {
+                  "const": "HydrogenGridOperator"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "matchingData": {
+      "$ref": "https://h2-market.example/message-specifications/schemas/messages/matching/v0.9/components/matching-data.schema.json"
+    }
+  }
+}

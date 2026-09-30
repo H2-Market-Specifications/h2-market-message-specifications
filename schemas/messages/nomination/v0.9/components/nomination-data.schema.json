@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/nomination/v0.9/components/nomination-data.schema.json",
+  "title": "nominationData",
+  "description": "Nomination context containing the network location, balancing group, nomination period, hourly granularity, unit and nomination time series.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "location",
+    "internalAccount",
+    "period",
+    "granularity",
+    "unit",
+    "nominations"
+  ],
+  "properties": {
+    "location": {
+      "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/location.schema.json"
+    },
+    "internalAccount": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Internal balancing group identifier for which the nomination is submitted."
+    },
+    "period": {
+      "type": "string",
+      "pattern": "^.+/.+$",
+      "description": "Period covered by the nomination, represented as an ISO 8601 interval or duration expression."
+    },
+    "granularity": {
+      "type": "string",
+      "const": "PT1H",
+      "description": "Duration of each nomination interval. PT1H represents one hour."
+    },
+    "unit": {
+      "type": "string",
+      "const": "kWh",
+      "description": "Unit of the nomination quantities."
+    },
+    "nominations": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Nomination time series for the specified location, internal account and nomination period.",
+      "items": {
+        "$ref": "https://h2-market.example/message-specifications/schemas/messages/nomination/v0.9/components/nomination.schema.json"
+      }
+    }
+  }
+}

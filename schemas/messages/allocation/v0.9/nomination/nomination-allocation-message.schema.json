@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/allocation/v0.9/nomination/nomination-allocation-message.schema.json",
+  "title": "h2NominationAllocationMessage",
+  "description": "ALLOCATION message for hourly allocated nomination quantities transmitted by the WNB to the WMGV or allocated nomination data transmitted by the WMGV to the BKV.",
+  "allOf": [
+    {
+      "$ref": "../allocation-message-base.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "object",
+          "properties": {
+            "subType": {
+              "const": "Nomination"
+            }
+          }
+        },
+        "allocationData": {
+          "type": "object",
+          "properties": {
+            "unit": {
+              "const": "kWh"
+            },
+            "granularity": {
+              "enum": [
+                "PT1H",
+                "PT15M"
+              ]
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+	"message": {
+		"type": "ALLOCATION",
+		"subType": "Measurement",
+		"version": "0.9",
+		"documentNumber": "ABC123456789",
+		"creationDateTime": "2026-03-21T12:09:00Z"
+	},
+	"parties": {
+		"sender": {
+			"partnerCode": "9700123456789",
+			"partnerRole": "HydrogenMarketAreaManager"
+		},
+		"recipient": {
+			"partnerCode": "9700987654321",
+			"partnerRole": "BalancingGroupResponsibleParty"
+		}
+	},
+	"allocationData": {
+		"period": "2026-03-21T23:00:00Z/PT1H",
+		"unit": "kWh",
+		"asOfDate": "2026-03-21T12:06:00Z",
+		"granularity": "PT15M",
+		"allocations": [
+			{
+				"internalAccount": "THE0BBH000400000",
+				"location": { "locationCode": "41262448132", "locationType": "EntryPointProductionFacility" },
+				"flowDirection": "Entry",
+				"values": [
+					{ "timestamp": "2026-03-21T23:00:00Z", "quantity": 84, "status": "estimated" },
+					{ "timestamp": "2026-03-21T23:15:00Z", "quantity": 148, "status": "measured" },
+					{ "timestamp": "2026-03-21T23:30:00Z", "quantity": 161, "status": "estimated" },
+					{ "timestamp": "2026-03-21T23:45:00Z", "quantity": 106, "status": "estimated" }
+				]
+			},
+			{
+				"internalAccount": "THE0BBH000400000",
+				"location": { "locationCode": "41262448133", "locationType": "ExitPointEndConsumer" },
+				"flowDirection": "Exit",
+				"values": [
+					{ "timestamp": "2026-03-21T23:00:00Z", "quantity": 12, "status": "measured" },
+					{ "timestamp": "2026-03-21T23:15:00Z", "quantity": 11, "status": "measured" },
+					{ "timestamp": "2026-03-21T23:30:00Z", "quantity": 0, "status": "missing" },
+					{ "timestamp": "2026-03-21T23:45:00Z", "quantity": 13, "status": "measured" }
+				]
+			}
+		]
+	}
+}

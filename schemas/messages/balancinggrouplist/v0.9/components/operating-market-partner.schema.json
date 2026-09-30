@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/balancinggrouplist/v0.9/components/operating-market-partner.schema.json",
+  "title": "marketPartner",
+  "description": "Market partner responsible for the balancing group, including the partner's validity period.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "marketPartnerCode",
+    "marketPartnerName",
+    "marketPartnerFrom",
+    "marketPartnerTo"
+  ],
+  "properties": {
+    "marketPartnerCode": {
+      "type": "string",
+      "pattern": "^[0-9]{13}$",
+      "description": "13-digit identifier of the responsible market partner."
+    },
+    "marketPartnerName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "description": "Name of the responsible market partner."
+    },
+    "marketPartnerFrom": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+      "description": "UTC timestamp marking the beginning of the market partner's validity period."
+    },
+    "marketPartnerTo": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+      "description": "UTC timestamp marking the end of the market partner's validity period."
+    }
+  }
+}

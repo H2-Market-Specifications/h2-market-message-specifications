@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/allocation/v0.9/components/allocationdata.schema.json",
+  "title": "allocationData",
+  "description": "Context and collection of allocation blocks. The period and granularity define the time range and the expected sequence of time-series values.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "period",
+    "asOfDate",
+    "unit",
+    "granularity",
+    "allocations"
+  ],
+  "properties": {
+    "period": {
+      "type": "string",
+      "pattern": "^.+/.+$",
+      "description": "Time period covered by the allocation data, represented as an ISO 8601 interval or duration expression."
+    },
+    "asOfDate": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+      "description": "UTC timestamp identifying the data snapshot used to create this message. It indicates the point in time up to which data was retrieved from or available in the source system. Data received or processed after this timestamp is not included in this message."
+    },
+    "unit": {
+      "type": "string",
+      "const": "kWh",
+      "description": "Unit of the quantity values."
+    },
+    "granularity": {
+      "type": "string",
+      "enum": [
+        "PT15M",
+        "PT1H"
+      ],
+      "description": "Duration of each timeseries interval. PT15M represents a quarter-hour and PT1H represents one hour."
+    },
+    "allocations": {
+      "type": "array",
+      "minItems": 1,
+      "description": "List of allocation blocks. Each block describes a timeseries for one balancing group, one location and one flow direction.",
+      "items": {
+        "$ref": "https://h2-market.example/message-specifications/schemas/messages/allocation/v0.9/components/allocation.schema.json"
+      }
+    }
+  }
+}

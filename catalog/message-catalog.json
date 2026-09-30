@@ -1,0 +1,291 @@
+{
+  "$schema": "https://h2-market.example/message-specifications/catalog/message-catalog.schema.json",
+  "catalogVersion": "0.9",
+  "description": "Catalog of H2 market message schemas maintained in this repository.",
+  "namingConventions": {
+    "jsonProperties": "lowerCamelCase",
+    "businessCodeValues": "as specified by the message schema",
+    "technicalAndExternalCodes": "unchanged"
+  },
+  "messages": [
+    {
+      "id": "preliminary-measurement",
+      "name": "Preliminary Measurement Message",
+      "businessNameDe": "Vorläufige Messwerte",
+      "message": {
+        "type": "MEASUREMENT",
+        "subType": "Preliminary",
+        "version": "0.9"
+      },
+      "schema": "../schemas/messages/measurement/v0.9/preliminary/preliminary-measurement-message.schema.json",
+      "schemaId": "https://h2-market.example/message-specifications/schemas/messages/measurement/v0.9/preliminary/preliminary-measurement-message.schema.json",
+      "examples": [
+        "../examples/messages/measurement/v0.9/preliminary/PRELIMINARY_MEASUREMENT.valid.json",
+        "../examples/messages/measurement/v0.9/preliminary/PRELIMINARY_MEASUREMENT.end-interval.valid.json"
+      ],
+      "status": "Draft",
+      "ownerWorkingGroup": "AG Datenformate",
+      "notes": "Uses the common message + measurements[] root structure. Every preliminary measurement data block uses PT15M granularity and has its own timeSeries."
+    },
+    {
+      "id": "final-measurement",
+      "name": "Final Measurement Message",
+      "businessNameDe": "Finale Messwerte",
+      "message": {
+        "type": "MEASUREMENT",
+        "subType": "Final",
+        "version": "0.9"
+      },
+      "schema": "../schemas/messages/measurement/v0.9/final/final-measurement-message.schema.json",
+      "schemaId": "https://h2-market.example/message-specifications/schemas/messages/measurement/v0.9/final/final-measurement-message.schema.json",
+      "examples": [
+        "../examples/messages/measurement/v0.9/final/FINAL_MEASUREMENT.valid.json",
+        "../examples/messages/measurement/v0.9/final/FINAL_MEASUREMENT.market-area-manager.valid.json"
+      ],
+      "status": "Draft",
+      "ownerWorkingGroup": "AG Datenformate",
+      "notes": "Uses the common message + measurements[] root structure. Every final measurement data block uses PT1H granularity and has its own timeSeries."
+    },
+    {
+      "id": "physical-nomination",
+      "name": "Physical Nomination Message",
+      "businessNameDe": "Physische Nomierung",
+      "message": {
+        "type": "NOMINATION",
+        "subType": "Physical",
+        "version": "0.9"
+      },
+      "schema": "../schemas/messages/nomination/v0.9/physical/physical-nomination-message.schema.json",
+      "schemaId": "https://h2-market.example/message-specifications/schemas/messages/nomination/v0.9/physical/physical-nomination-message.schema.json",
+      "examples": [
+        "../examples/messages/nomination/v0.9/physical/PHYSICAL_NOMINATION.valid.json"
+      ],
+      "status": "Draft",
+      "ownerWorkingGroup": "AG Datenformate"
+    },
+    {
+      "id": "physical-nominationresponse",
+      "name": "Physical Nomination Response Message",
+      "businessNameDe": "Physische Nomierung Antwort",
+      "message": {
+        "type": "NOMINATIONRESPONSE",
+        "subType": "Physical",
+        "version": "0.9"
+      },
+      "schema": "../schemas/messages/nominationresponse/v0.9/physical/physical-nominationresponse-message.schema.json",
+      "schemaId": "https://h2-market.example/message-specifications/schemas/messages/nominationresponse/v0.9/physical/physical-nominationresponse-message.schema.json",
+      "examples": [
+        "../examples/messages/nominationresponse/v0.9/physical/PHYSICAL_NOMINATIONRESPONSE.valid.json"
+      ],
+      "status": "Draft",
+      "ownerWorkingGroup": "AG Datenformate"
+    },
+    {
+      "id": "vtp-nomination",
+      "name": "VTP Nomination Message",
+      "businessNameDe": "VTP-Nominierung",
+      "message": {
+        "type": "NOMINATION",
+        "subType": "VTP",
+        "version": "0.9"
+      },
+      "schema": "../schemas/messages/nomination/v0.9/vtp/vtp-nomination-message.schema.json",
+      "schemaId": "https://h2-market.example/message-specifications/schemas/messages/nomination/v0.9/vtp/vtp-nomination-message.schema.json",
+      "examples": [
+        "../examples/messages/nomination/v0.9/vtp/VTP_NOMINATION.valid.json"
+      ],
+      "status": "Draft",
+      "ownerWorkingGroup": "AG Datenformate"
+    },
+    {
+      "id": "vtp-nominationresponse",
+      "name": "VTP Nomination Response Message",
+      "businessNameDe": "VTP-Nominierungsantwort",
+      "message": {
+        "type": "NOMINATIONRESPONSE",
+        "subType": "VTP",
+        "version": "0.9"
+      },
+      "schema": "../schemas/messages/nominationresponse/v0.9/vtp/vtp-nominationresponse-message.schema.json",
+      "schemaId": "https://h2-market.example/message-specifications/schemas/messages/nominationresponse/v0.9/vtp/vtp-nominationresponse-message.schema.json",
+      "examples": [
+        "../examples/messages/nominationresponse/v0.9/vtp/VTP_NOMINATIONRESPONSE.valid.json"
+      ],
+      "status": "Draft",
+      "ownerWorkingGroup": "AG Datenformate"
+    },
+    {
+      "id": "request-matching",
+      "name": "Request Matching Message",
+      "businessNameDe": "Matching Aufforderung",
+      "message": {
+        "type": "MATCHING",
+        "subType": "Request",
+        "version": "0.9"
+      },
+      "schema": "../schemas/messages/matching/v0.9/request/request-matching-message.schema.json",
+      "schemaId": "https://h2-market.example/message-specifications/schemas/messages/matching/v0.9/request/request-matching-message.schema.json",
+      "examples": [
+        "../examples/messages/matching/v0.9/request/REQUEST_MATCHING.summer-time-start.valid.json",
+        "../examples/messages/matching/v0.9/request/REQUEST_MATCHING.winter-time-start.valid.json"
+      ],
+      "status": "Draft",
+      "ownerWorkingGroup": "AG Datenformate"
+    },
+    {
+      "id": "response-matching",
+      "name": "Response Matching Message",
+      "businessNameDe": "Matching Antwort",
+      "message": {
+        "type": "MATCHING",
+        "subType": "Response",
+        "version": "0.9"
+      },
+      "schema": "../schemas/messages/matching/v0.9/response/response-matching-message.schema.json",
+      "schemaId": "https://h2-market.example/message-specifications/schemas/messages/matching/v0.9/response/response-matching-message.schema.json",
+      "examples": [
+        "../examples/messages/matching/v0.9/response/RESPONSE_MATCHING.winter-time-start.valid.json"
+      ],
+      "status": "Draft",
+      "ownerWorkingGroup": "AG Datenformate"
+    },
+    {
+      "id": "continuousbalancing-balancing",
+      "name": "Continuous Balancing Message",
+      "businessNameDe": "Kontinuierlicher Bilanzkreissaldo",
+      "message": {
+        "type": "BALANCING",
+        "subType": "ContinuousBalancing",
+        "version": "0.9"
+      },
+      "schema": "../schemas/messages/balancing/v0.9/continuousbalancing/continuousbalancing-balancing-message.schema.json",
+      "schemaId": "https://h2-market.example/message-specifications/schemas/messages/balancing/v0.9/continuousbalancing/continuousbalancing-balancing-message.schema.json",
+      "examples": [
+        "../examples/messages/balancing/v0.9/continuousbalancing/CONTINUOUSBALANCING_BALANCING.1-first-qh.valid.json"
+      ],
+      "status": "Draft",
+      "ownerWorkingGroup": "AG Datenformate",
+      "notes": "Contains consecutive interval balances for one internal account."
+    },
+    {
+      "id": "differencequantities-balancing",
+      "name": "Difference Quantities Message",
+      "businessNameDe": "Differenzmengen",
+      "message": {
+        "type": "BALANCING",
+        "subType": "DifferenceQuantities",
+        "version": "0.9"
+      },
+      "schema": "../schemas/messages/balancing/v0.9/differencequantities/differencequantities-balancing-message.schema.json",
+      "schemaId": "https://h2-market.example/message-specifications/schemas/messages/balancing/v0.9/differencequantities/differencequantities-balancing-message.schema.json",
+      "examples": [
+        "../examples/messages/balancing/v0.9/differencequantities/DIFFERENCEQUANTITIES_BALANCING.preliminary.valid.json"
+      ],
+      "status": "Draft",
+      "ownerWorkingGroup": "AG Datenformate",
+      "notes": "Contains consecutive interval balances for one internal account."
+    },
+    {
+      "id": "default-quantitydeclaration",
+      "name": "Quantity Declaration Message",
+      "businessNameDe": "Mengenanmeldung",
+      "message": {
+        "type": "QUANTITYDECLARATION",
+        "subType": "Default",
+        "version": "0.9"
+      },
+      "schema": "../schemas/messages/quantitydeclaration/v0.9/default/default-quantitydeclaration-message.schema.json",
+      "schemaId": "https://h2-market.example/message-specifications/schemas/messages/quantitydeclaration/v0.9/default/default-quantitydeclaration-message.schema.json",
+      "examples": [
+        "../examples/messages/quantitydeclaration/v0.9/default/DEFAULT_QUANTITYDECLARATION.valid.json"
+      ],
+      "status": "Draft",
+      "ownerWorkingGroup": "AG Datenformate"
+    },
+    {
+      "id": "default-quantitydeclarationresponse",
+      "name": "Quantity Declaration Message",
+      "businessNameDe": "Mengenanmeldungsbestätigung",
+      "message": {
+        "type": "QUANTITYDECLARATIONRESPONSE",
+        "subType": "Default",
+        "version": "0.9"
+      },
+      "schema": "../schemas/messages/quantitydeclarationresponse/v0.9/default/default-quantitydeclarationresponse-message.schema.json",
+      "schemaId": "https://h2-market.example/message-specifications/schemas/messages/quantitydeclarationresponse/v0.9/default/default-quantitydeclarationresponse-message.schema.json",
+      "examples": [
+        "../examples/messages/quantitydeclarationresponse/v0.9/default/DEFAULT_QUANTITYDECLARATIONRESPONSE.valid.json"
+      ],
+      "status": "Draft",
+      "ownerWorkingGroup": "AG Datenformate"
+    },
+    {
+      "id": "nomination-allocation",
+      "name": "Nomination Allocation Message",
+      "businessNameDe": "Nominierungsallokation",
+      "message": {
+        "type": "ALLOCATION",
+        "subType": "Nomination",
+        "version": "0.9"
+      },
+      "schema": "../schemas/messages/allocation/v0.9/nomination/nomination-allocation-message.schema.json",
+      "schemaId": "https://h2-market.example/message-specifications/schemas/messages/allocation/v0.9/nomination/nomination-allocation-message.schema.json",
+      "examples": [
+        "../examples/messages/allocation/v0.9/nomination/NOMINATION_ALLOCATION.valid.json"
+      ],
+      "status": "Draft",
+      "ownerWorkingGroup": "AG Datenformate"
+    },
+    {
+      "id": "quantitydeclaration-allocation",
+      "name": "Quantity Declaration Allocation Message",
+      "businessNameDe": "Mengenanmeldungsallokation",
+      "message": {
+        "type": "ALLOCATION",
+        "subType": "QuantityDeclaration",
+        "version": "0.9"
+      },
+      "schema": "../schemas/messages/allocation/v0.9/quantitydeclaration/quantitydeclaration-allocation-message.schema.json",
+      "schemaId": "https://h2-market.example/message-specifications/schemas/messages/allocation/v0.9/quantitydeclaration/quantitydeclaration-allocation-message.schema.json",
+      "examples": [
+        "../examples/messages/allocation/v0.9/quantitydeclaration/QUANTITYDECLARATION_ALLOCATION.valid.json"
+      ],
+      "status": "Draft",
+      "ownerWorkingGroup": "AG Datenformate"
+    },
+    {
+      "id": "measurement-allocation",
+      "name": "Measurement Allocation Message",
+      "businessNameDe": "Messallokation",
+      "message": {
+        "type": "ALLOCATION",
+        "subType": "Measurement",
+        "version": "0.9"
+      },
+      "schema": "../schemas/messages/allocation/v0.9/measurement/measurement-allocation-message.schema.json",
+      "schemaId": "https://h2-market.example/message-specifications/schemas/messages/allocation/v0.9/measurement/measurement-allocation-message.schema.json",
+      "examples": [
+        "../examples/messages/allocation/v0.9/measurement/MEASUREMENT_ALLOCATION.preliminary.valid.json"
+      ],
+      "status": "Draft",
+      "ownerWorkingGroup": "AG Datenformate"
+    },
+    {
+      "id": "default-balancinggrouplist",
+      "name": "Default Balancing Group List Message",
+      "businessNameDe": "Bilanzkreislistenmeldung",
+      "message": {
+        "type": "BALANCINGGROUPLIST",
+        "subType": "Default",
+        "version": "0.9"
+      },
+      "schema": "../schemas/messages/balancinggrouplist/v0.9/default/default-balancinggrouplist-message.schema.json",
+      "schemaId": "https://h2-market.example/message-specifications/schemas/messages/balancinggrouplist/v0.9/default/default-balancinggrouplist-message.schema.json",
+      "examples": [
+        "../examples/messages/balancinggrouplist/v0.9/default/DEFAULT_BALANCINGGROUPLIST.valid.json"
+      ],
+      "status": "Draft",
+      "ownerWorkingGroup": "AG Datenformate"
+    }
+  ]
+}

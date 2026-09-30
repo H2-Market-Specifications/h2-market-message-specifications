@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/quantitydeclaration/v0.9/components/quantity-declaration-data.schema.json",
+  "title": "quantityDeclarationData",
+  "description": "Quantity declaration context containing the network location, internal balancing group, covered period, time-series granularity, unit and declared quantity values.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "location",
+    "internalAccount",
+    "period",
+    "granularity",
+    "unit",
+    "values"
+  ],
+  "properties": {
+    "location": {
+      "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/location.schema.json"
+    },
+    "internalAccount": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Internal balancing group identifier for which the quantity declaration is submitted."
+    },
+    "period": {
+      "type": "string",
+      "pattern": "^.+/.+$",
+      "description": "Period covered by the quantity declaration, represented as an ISO 8601 interval or duration expression."
+    },
+    "granularity": {
+      "type": "string",
+      "enum": [
+        "PT15M",
+        "PT1H"
+      ],
+      "description": "Duration of each quantity declaration interval. PT15M represents a quarter-hour and PT1H represents one hour."
+    },
+    "unit": {
+      "type": "string",
+      "enum": [
+        "kWh"
+      ],
+      "description": "Unit of the declared quantities."
+    },
+    "values": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Chronologically ordered quantity declaration values. Each value represents the declared quantity for one interval. The interval duration is defined by quantityDeclarationData.granularity.",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/time-series-value.schema.json"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "quantity": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Non-negative whole-number quantity declared for the interval in the unit defined by unit."
+              },
+              "quality": false,
+              "flowDirection": false
+            }
+          }
+        ]
+      }
+    }
+  }
+}

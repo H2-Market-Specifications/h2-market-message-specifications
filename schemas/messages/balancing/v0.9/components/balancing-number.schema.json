@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/balancing/v0.9/components/balancing-number.schema.json",
+  "title": "balancingNumber",
+  "description": "Time series for one balancing figure.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "quantityType",
+    "values"
+  ],
+  "properties": {
+    "quantityType": {
+      "type": "string",
+      "enum": [
+        "BGBalance",
+        "BGBalanceDifference",
+        "BGBalancePostmonthly",
+        "BGBalanceCumulative",
+        "BGBalanceCumulativeExternal",
+        "OverallNetworkStatus"
+      ],
+      "description": "Type of balancing figure.",
+      "x-enumDescriptions": {
+        "BGBalance": "Balancing group balance for the explicitly specified interval, calculated as Entry minus Exit. A positive value indicates that Entry quantities exceed Exit quantities; a negative value indicates that Exit quantities exceed Entry quantities.",
+        "BGBalanceDifference": "Difference between the closed balancing group balance and the final balancing group balance for the specified hourly interval. The difference is calculated as final BGBalance minus closed BGBalance and is used to determine the balancing group's post-monthly difference quantity.",
+        "BGBalancePostmonthly": "Post-monthly balancing group balance calculated on an hourly basis using final measurement data and final allocations. It replaces the previously determined closed balancing group balance for the relevant interval when determining post-monthly difference quantities. The previously completed balancing group balancing and the Overall Network Status are not changed retroactively.",
+        "BGBalanceCumulative": "Cumulative balancing group balance of the internal balancing group. It is calculated by continuously adding the BGBalance of the current interval to the previously accumulated balance and is maintained from the beginning of the balancing group's existence without a time-based reset.",
+        "BGBalanceCumulativeExternal": "Cumulative balancing group balance of an externally referenced balancing group that is contractually connected to the internal balancing group for a cooperative balancing process.",
+        "OverallNetworkStatus": "Overall cumulative balancing status of the relevant cluster. It represents the aggregated cumulative imbalance of the balancing groups within the cluster and is used to assess the overall balancing situation and support the procurement of balancing energy."
+      }
+    },
+    "values": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Chronologically ordered balancing values for the selected quantity type.",
+      "items": {
+        "$ref": "https://h2-market.example/message-specifications/schemas/messages/balancing/v0.9/components/balancing-period-value.schema.json"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "quantityType": {
+            "enum": [
+              "BGBalanceCumulative",
+              "BGBalanceCumulativeExternal"
+            ]
+          }
+        },
+        "required": [
+          "quantityType"
+        ]
+      },
+      "then": {
+        "properties": {
+          "values": {
+            "items": {
+              "required": [
+                "helperCauser"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "quantityType": {
+            "enum": [
+              "BGBalance",
+              "BGBalanceDifference",
+              "OverallNetworkStatus"
+            ]
+          }
+        },
+        "required": [
+          "quantityType"
+        ]
+      },
+      "then": {
+        "properties": {
+          "values": {
+            "items": {
+              "properties": {
+                "helperCauser": false
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

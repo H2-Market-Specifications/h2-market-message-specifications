@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/quantitydeclaration/v0.9/default/default-quantitydeclaration-message.schema.json",
+  "title": "h2DefaultQuantityDeclarationMessage",
+  "description": "Message for transmitting an hourly quantity declaration from a Balancing Group Responsible Party to a Hydrogen Grid Operator.",
+  "allOf": [
+    {
+      "$ref": "../quantitydeclaration-message-base.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "object",
+          "properties": {
+            "subType": {
+              "const": "Default"
+            }
+          }
+        },
+        "quantityDeclarationData": {
+          "type": "object",
+          "properties": {
+            "granularity": {
+              "const": "PT1H"
+            },
+            "unit": {
+              "const": "kWh"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

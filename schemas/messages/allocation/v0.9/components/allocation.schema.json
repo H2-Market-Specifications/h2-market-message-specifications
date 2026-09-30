@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/allocation/v0.9/components/allocation.schema.json",
+  "title": "allocation",
+  "description": "Reusable allocation data block for one balancing group, one location and one flow direction.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "internalAccount",
+    "location",
+    "flowDirection",
+    "values"
+  ],
+  "properties": {
+    "internalAccount": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Internal balancing group identifier."
+    },
+    "location": {
+      "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/location.schema.json"
+    },
+    "flowDirection": {
+      "type": "string",
+      "enum": [
+        "Entry",
+        "Exit"
+      ],
+      "description": "Flow direction of the allocation block. Entry represents a flow into the relevant network or balancing group. Exit represents a flow out of the relevant network or balancing group.",
+      "x-enumDescriptions": {
+        "Entry": "Flow into the relevant network, system or balancing group.",
+        "Exit": "Flow out of the relevant network, system or balancing group."
+      }
+    },
+    "values": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Ordered time series containing one value for each consecutive interval of the allocation block. The interval duration is defined by allocationData.granularity.",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/time-series-value.schema.json"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "flowDirection": false
+            }
+          }
+        ]
+      }
+    }
+  }
+}

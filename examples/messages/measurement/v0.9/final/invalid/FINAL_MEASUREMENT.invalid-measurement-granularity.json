@@ -1,0 +1,47 @@
+{
+  "message": {
+    "type": "MEASUREMENT",
+    "subType": "Final",
+    "version": "0.9",
+    "documentNumber": "ABC123456789",
+    "creationDateTime": "2026-03-22T15:47:45Z"
+  },
+  "parties": {
+    "sender": {
+      "partnerCode": "9700123456789",
+      "partnerRole": "HydrogenGridOperator"
+    },
+    "recipient": {
+      "partnerCode": "9700987654321",
+      "partnerRole": "TransportCustomer"
+    }
+  },
+  "measurementData": {
+    "period": "2026-03-22T15:00:00Z/PT3H",
+    "granularity": "PT1H",
+    "location": {
+      "locationCode": "41262448135",
+      "locationType": "EntryPointProductionFacility"
+    },
+    "measurements": [
+      {
+        "quantityType": "EnergyH2",
+        "unit": "GWh",
+        "values": [
+          { "timestamp": "2026-03-22T15:00:00Z", "quantity": 100, "status": "measured" },
+          { "timestamp": "2026-03-22T16:00:00Z", "quantity": 120, "status": "measured" },
+          { "timestamp": "2026-03-22T17:00:00Z", "quantity": 100, "status": "measured" }
+        ]
+      },
+      {
+        "unit": "molPercent",
+        "quantityType": "HydrogenContent",
+        "values": [
+          { "timestamp": "2026-03-22T15:00:00Z", "quantity": 80.4, "status": "measured" },
+          { "timestamp": "2026-03-22T16:00:00Z", "quantity": 85.0, "status": "measured" },
+          { "timestamp": "2026-03-22T17:00:00Z", "quantity": 90.9, "status": "measured" }
+        ]
+      }
+    ]
+  }
+}

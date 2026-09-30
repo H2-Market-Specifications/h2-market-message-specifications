@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/allocation/v0.9/measurement/measurement-allocation-message.schema.json",
+  "title": "h2MeasurementAllocationMessage",
+  "description": "ALLOCATION message for allocated measurement data transmitted by the WMGV to the BKV. This schema does not define the WNB-to-WMGV transmission of preliminary or final measurements, which is defined in the schema for the MEASUREMENT message.",
+  "allOf": [
+    {
+      "$ref": "../allocation-message-base.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "object",
+          "properties": {
+            "subType": {
+              "const": "Measurement"
+            }
+          }
+        },
+        "parties": {
+          "type": "object",
+          "properties": {
+            "sender": {
+              "type": "object",
+              "properties": {
+                "partnerRole": {
+                  "const": "HydrogenMarketAreaManager"
+                }
+              }
+            },
+            "recipient": {
+              "type": "object",
+              "properties": {
+                "partnerRole": {
+                  "const": "BalancingGroupResponsibleParty"
+                }
+              }
+            }
+          }
+        },
+        "allocationData": {
+          "type": "object",
+          "properties": {
+            "unit": {
+              "const": "kWh"
+            },
+            "granularity": {
+              "enum": [
+                "PT15M",
+                "PT1H"
+              ]
+            },
+            "allocations": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "values": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "quality",
+                        "status"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

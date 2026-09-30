@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/measurement/v0.9/components/measurement-data.schema.json",
+  "title": "measurementData",
+  "description": "Measurement context containing the covered period, time-series granularity, network location and one or more measured quantities.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "period",
+    "granularity",
+    "location",
+    "measurements"
+  ],
+  "properties": {
+    "period": {
+      "type": "string",
+      "pattern": "^.+/.+$",
+      "description": "Period covered by the measurement data, represented as an ISO 8601 interval or duration expression."
+    },
+    "granularity": {
+      "type": "string",
+      "enum": [
+        "PT15M",
+        "PT1H"
+      ],
+      "description": "Duration of each measurement interval. PT15M represents a quarter-hour and PT1H represents one hour."
+    },
+    "location": {
+      "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/location.schema.json"
+    },
+    "measurements": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Measured quantities for the specified location, period and granularity.",
+      "items": {
+        "$ref": "https://h2-market.example/message-specifications/schemas/messages/measurement/v0.9/components/measurement.schema.json"
+      }
+    }
+  }
+}

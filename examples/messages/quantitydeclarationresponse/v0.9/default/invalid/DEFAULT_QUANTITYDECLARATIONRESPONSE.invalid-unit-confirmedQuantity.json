@@ -1,0 +1,98 @@
+{
+	"message": {
+		"type": "QUANTITYDECLARATIONRESPONSE",
+		"subType": "Default",
+		"version": "0.9",
+		"documentNumber": "ABC123456789",
+		"creationDateTime": "2026-03-21T12:00:00Z"
+	},
+	"parties": {
+		"sender": {
+			"partnerCode": "9700987654321",
+			"partnerRole": "HydrogenGridOperator"
+		},
+		"recipient": {
+			"partnerCode": "9700123456789",
+			"partnerRole": "BalancingGroupResponsibleParty"
+		}
+	},
+	"quantityDeclarationResponseData": {
+		"location": {
+			"locationCode": "41262448135", "locationType": "EntryPointProductionFacility"
+		},
+		"internalAccount": "THE0BBH000400000",
+		"period": "2026-03-21T23:00:00Z/P1D",
+		"timeSeries": [
+			{
+				"quantityType": "ConfirmedQuantity",
+				"granularity": "PT1H",
+				"unit": "kW",
+				"values": [
+					{ "timestamp": "2026-03-21T23:00:00Z", "quantity": 84, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T00:00:00Z", "quantity": 148, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T01:00:00Z", "quantity": 161, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T02:00:00Z", "quantity": 106, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T03:00:00Z", "quantity": 88, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T04:00:00Z", "quantity": 94, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T05:00:00Z", "quantity": 31, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T06:00:00Z", "quantity": 24, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T07:00:00Z", "quantity": 145, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T08:00:00Z", "quantity": 126, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T09:00:00Z", "quantity": 135, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T10:00:00Z", "quantity": 138, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T11:00:00Z", "quantity": 142, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T12:00:00Z", "quantity": 156, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T13:00:00Z", "quantity": 168, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T14:00:00Z", "quantity": 181, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T15:00:00Z", "quantity": 112, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T16:00:00Z", "quantity": 179, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T17:00:00Z", "quantity": 176, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T18:00:00Z", "quantity": 193, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T19:00:00Z", "quantity": 27, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T20:00:00Z", "quantity": 114, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T21:00:00Z", "quantity": 137, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" },
+					{ "timestamp": "2026-03-22T22:00:00Z", "quantity": 42, "dispatchInstruction": false, "status": "requestedQuantityConfirmed" }
+				]
+			},
+			{
+				"quantityType": "RequestedQuantity",
+				"granularity": "PT1H",
+				"unit": "kWh",
+				"values": [
+					{ "timestamp": "2026-03-21T23:00:00Z", "quantity": 84 },
+					{ "timestamp": "2026-03-22T00:00:00Z", "quantity": 148 },
+					{ "timestamp": "2026-03-22T01:00:00Z", "quantity": 161 },
+					{ "timestamp": "2026-03-22T02:00:00Z", "quantity": 106 },
+					{ "timestamp": "2026-03-22T03:00:00Z", "quantity": 88 },
+					{ "timestamp": "2026-03-22T04:00:00Z", "quantity": 94 },
+					{ "timestamp": "2026-03-22T05:00:00Z", "quantity": 31 },
+					{ "timestamp": "2026-03-22T06:00:00Z", "quantity": 24 },
+					{ "timestamp": "2026-03-22T07:00:00Z", "quantity": 145 },
+					{ "timestamp": "2026-03-22T08:00:00Z", "quantity": 126 },
+					{ "timestamp": "2026-03-22T09:00:00Z", "quantity": 135 },
+					{ "timestamp": "2026-03-22T10:00:00Z", "quantity": 138 },
+					{ "timestamp": "2026-03-22T11:00:00Z", "quantity": 142 },
+					{ "timestamp": "2026-03-22T12:00:00Z", "quantity": 156 },
+					{ "timestamp": "2026-03-22T13:00:00Z", "quantity": 168 },
+					{ "timestamp": "2026-03-22T14:00:00Z", "quantity": 181 },
+					{ "timestamp": "2026-03-22T15:00:00Z", "quantity": 112 },
+					{ "timestamp": "2026-03-22T16:00:00Z", "quantity": 179 },
+					{ "timestamp": "2026-03-22T17:00:00Z", "quantity": 176 },
+					{ "timestamp": "2026-03-22T18:00:00Z", "quantity": 193 },
+					{ "timestamp": "2026-03-22T19:00:00Z", "quantity": 27 },
+					{ "timestamp": "2026-03-22T20:00:00Z", "quantity": 114 },
+					{ "timestamp": "2026-03-22T21:00:00Z", "quantity": 137 },
+					{ "timestamp": "2026-03-22T22:00:00Z", "quantity": 42 }
+				]
+			},
+			{
+				"quantityType": "BookedCapacity",
+				"granularity": "P1D",
+				"unit": "kW",
+				"values": [
+					{ "timestamp": "2026-03-21T23:00:00Z", "quantity": 84 }
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/message.schema.json",
+  "title": "message",
+  "description": "Reusable message metadata block for H2 market messages. Concrete root message schemas constrain type, subType and version inline without creating duplicate message schemas per message type.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "type",
+    "subType",
+    "version",
+    "documentNumber",
+    "creationDateTime"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "description": "Message category code, for example MEASUREMENT."
+    },
+    "subType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[A-Za-z][A-Za-z0-9]*$",
+      "description": "Message subtype, for example Preliminary or Final."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+$",
+      "description": "Message format version."
+    },
+    "documentNumber": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[A-Za-z0-9._-]+$",
+      "description": "Sender-specific business reference for this message."
+    },
+    "creationDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+      "description": "UTC timestamp of message creation."
+    }
+  }
+}

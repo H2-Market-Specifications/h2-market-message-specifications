@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/matching/v0.9/components/matching-account-specific-data.schema.json",
+  "title": "accountSpecificData",
+  "description": "Matching data for one internal account and one corresponding external account at the specified network location.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "internalAccount",
+    "externalAccount",
+    "timeSeries"
+  ],
+  "properties": {
+    "internalAccount": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Identifier of the account used by the sender or receiving matching partner."
+    },
+    "externalAccount": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Identifier of the corresponding account used by the other matching partner."
+    },
+    "timeSeries": {
+      "type": "array",
+      "minItems": 1,
+      "description": "One or more matching time series for the account pair and the specified matching period.",
+      "items": {
+        "$ref": "https://h2-market.example/message-specifications/schemas/messages/matching/v0.9/components/matching-time-series.schema.json"
+      }
+    }
+  }
+}

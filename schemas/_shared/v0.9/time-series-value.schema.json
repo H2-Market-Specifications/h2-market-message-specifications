@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/time-series-value.schema.json",
+  "title": "timeSeriesValue",
+  "description": "Reusable value for a timestamp-based time series. Each value represents a quantity or measurement for a defined time interval. The timestamp identifies the beginning of the interval. The duration and end of the interval are determined by the granularity defined by the message or data structure that contains the time series.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "timestamp",
+    "quantity"
+  ],
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+      "description": "Timestamp identifying the beginning of the interval represented by this value."
+    },
+    "quantity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 99999999,
+      "description": "Quantity value for the interval. The unit is defined by the message or data structure that contains the time series. Decimal values are permitted. Negative values are not permitted."
+    },
+    "quality": {
+      "type": "string",
+      "enum": [
+        "closed",
+        "prognosis",
+        "preliminary",
+        "final"
+      ],
+      "description": "Quality or maturity of the value. The exact meaning depends on the message type and the business process in which the value is used.",
+      "x-enumDescriptions": {
+        "closed": "The value has been completed or fixed for the relevant process period.",
+        "prognosis": "The value represents a forecast or expected value.",
+        "preliminary": "The value is provisional and may be updated during the relevant process period.",
+        "final": "The value is final and is not expected to be changed within the relevant process."
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "measured",
+        "estimated",
+        "replaced",
+        "missing",
+        "requestedQuantityConfirmed",
+        "capacityExceeded",
+        "supplyBottleneck"
+      ],
+      "description": "Origin or processing status of the value. The exact meaning and permitted combinations depend on the message type and the applicable business process.",
+      "x-enumDescriptions": {
+        "measured": "The value originates from an actual measurement.",
+        "estimated": "The value was estimated or calculated.",
+        "replaced": "The original value was unavailable, invalid or unusable and was replaced by the quantity declaration.",
+        "missing": "No valid value is available for the interval.",
+        "requestedQuantityConfirmed": "The requested quantity was confirmed by the Hydrogen Grid Operator and can be used as the confirmed quantity for the relevant process.",
+        "capacityExceeded": "The requested quantity exceeds the booked or available capacity. The confirmed quantity may therefore be reduced to the applicable capacity limit.",
+        "supplyBottleneck": "The quantity was reduced or interrupted because of a supply or network bottleneck. The resulting confirmed quantity must be treated as a dispatch instruction."
+      }
+    },
+    "flowDirection": {
+      "type": "string",
+      "enum": [
+        "Entry",
+        "Exit"
+      ],
+      "description": "Flow direction associated with the time-series value. 'Entry' indicates a flow into the relevant network, system or balancing group. 'Exit' indicates a flow out of the relevant network, system or balancing group. The precise interpretation depends on the message type and the containing data structure.",
+      "x-enumDescriptions": {
+        "Entry": "Flow into the relevant network, system or balancing group.",
+        "Exit": "Flow out of the relevant network, system or balancing group."
+      }
+    },
+    "dispatchInstruction": {
+      "type": "boolean",
+      "description": "Indicates whether the quantity is a binding operational dispatch instruction that must be followed by the receiving market participant. This property is applicable only to the QUANTITYDECLARATIONRESPONSE message type. Before the end of the capacity booking period, a confirmed quantity is generally not a dispatch instruction unless a supply bottleneck requires a reduction or interruption. After the end of the capacity booking period, the confirmed quantity is treated as a dispatch instruction. In the event of a supply bottleneck, any reduced or interrupted quantity is treated as a dispatch instruction."
+    }
+  }
+}

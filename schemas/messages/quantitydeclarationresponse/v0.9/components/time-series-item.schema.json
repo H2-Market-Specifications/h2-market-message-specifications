@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/quantitydeclarationresponse/v0.9/components/time-series-item.schema.json",
+  "title": "quantityDeclarationResponseTimeSeries",
+  "description": "Time series for one quantity type in a quantity declaration response. Requested and confirmed quantities are hourly values. Booked capacity is a daily value for the complete calendar day.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "quantityType",
+    "unit",
+    "granularity",
+    "values"
+  ],
+  "properties": {
+    "quantityType": {
+      "type": "string",
+      "enum": [
+        "RequestedQuantity",
+        "ConfirmedQuantity",
+        "BookedCapacity"
+      ],
+      "description": "Type of quantity represented by the time series.",
+      "x-enumDescriptions": {
+        "RequestedQuantity": "Quantity requested by the Balancing Group Responsible Party.",
+        "ConfirmedQuantity": "Quantity confirmed by the Hydrogen Grid Operator after processing the quantity declaration.",
+        "BookedCapacity": "Capacity booked for the relevant location and balancing group for the complete calendar day."
+      }
+    },
+    "granularity": {
+      "type": "string",
+      "enum": [
+        "P1D",
+        "PT1H"
+      ],
+      "description": "Duration of each time-series interval. PT1H represents one hour. P1D represents one complete calendar day."
+    },
+    "unit": {
+      "type": "string",
+      "enum": [
+        "kWh",
+        "kW"
+      ],
+      "description": "Unit of the time-series values. Quantities are expressed in kWh and booked capacity is expressed in kW."
+    },
+    "values": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Chronologically ordered time-series values. Each value represents the quantity for one interval defined by granularity.",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/time-series-value.schema.json"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "flowDirection": false,
+              "quality": false
+            }
+          }
+        ]
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "quantityType": {
+            "const": "RequestedQuantity"
+          }
+        },
+        "required": [
+          "quantityType"
+        ]
+      },
+      "then": {
+        "properties": {
+          "unit": {
+            "const": "kWh"
+          },
+          "granularity": {
+            "const": "PT1H"
+          },
+          "values": {
+            "items": {
+              "type": "object",
+              "properties": {
+                "status": false,
+                "dispatchInstruction": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "quantityType": {
+            "const": "ConfirmedQuantity"
+          }
+        },
+        "required": [
+          "quantityType"
+        ]
+      },
+      "then": {
+        "properties": {
+          "unit": {
+            "const": "kWh"
+          },
+          "granularity": {
+            "const": "PT1H"
+          },
+          "values": {
+            "items": {
+              "type": "object",
+              "required": [
+                "status",
+                "dispatchInstruction"
+              ],
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "requestedQuantityConfirmed",
+                    "capacityExceeded",
+                    "supplyBottleneck"
+                  ],
+                  "description": "Processing status of the confirmed quantity.",
+                  "x-enumDescriptions": {
+                    "requestedQuantityConfirmed": "The requested quantity was confirmed by the Hydrogen Grid Operator and can be used as the confirmed quantity for the relevant process.",
+                    "capacityExceeded": "The requested quantity exceeds the booked or available capacity. The confirmed quantity may therefore be reduced to the applicable capacity limit.",
+                    "supplyBottleneck": "The quantity was reduced or interrupted because of a supply or network bottleneck. The resulting confirmed quantity must be treated as a dispatch instruction."
+                  }
+                },
+                "dispatchInstruction": {
+                  "type": "boolean",
+                  "description": "Indicates whether the confirmed quantity is a binding operational instruction that must be followed by the receiving market participant."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "quantityType": {
+            "const": "BookedCapacity"
+          }
+        },
+        "required": [
+          "quantityType"
+        ]
+      },
+      "then": {
+        "properties": {
+          "unit": {
+            "const": "kW"
+          },
+          "granularity": {
+            "const": "P1D"
+          },
+          "values": {
+            "minItems": 1,
+            "maxItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "status": false,
+                "dispatchInstruction": false
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

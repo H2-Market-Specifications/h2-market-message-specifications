@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/matching/v0.9/components/matching-data.schema.json",
+  "title": "matchingData",
+  "description": "Matching data for one network location and one matching period. It contains the matching period, time-series granularity, quantity unit and account-specific matching data.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "period",
+    "granularity",
+    "unit",
+    "location",
+    "accountSpecificData"
+  ],
+  "properties": {
+    "period": {
+      "type": "string",
+      "pattern": "^.+/.+$",
+      "description": "Period covered by the matching data, represented as an ISO 8601 interval or duration expression."
+    },
+    "granularity": {
+      "type": "string",
+      "enum": [
+        "PT1H"
+      ],
+      "description": "Duration of each time-series interval. PT1H represents one hour."
+    },
+    "unit": {
+      "type": "string",
+      "enum": [
+        "kWh"
+      ],
+      "description": "Unit of the quantities contained in the matching time series."
+    },
+    "location": {
+      "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/location.schema.json"
+    },
+    "accountSpecificData": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Matching data grouped by internal and external account for the network location and matching period.",
+      "items": {
+        "$ref": "https://h2-market.example/message-specifications/schemas/messages/matching/v0.9/components/matching-account-specific-data.schema.json"
+      }
+    }
+  }
+}

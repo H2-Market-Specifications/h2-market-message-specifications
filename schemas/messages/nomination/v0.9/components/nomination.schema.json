@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/nomination/v0.9/components/nomination.schema.json",
+  "title": "nominationTimeSeries",
+  "description": "Nomination time series for one external account and one nomination period.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "externalAccount",
+    "values"
+  ],
+  "properties": {
+    "externalAccount": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Identifier of the corresponding external account or matching counterpart."
+    },
+    "values": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Chronologically ordered hourly nomination values. Each value represents the quantity for the interval beginning at timestamp. The interval duration is defined by nominationData.granularity.",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/time-series-value.schema.json"
+          },
+          {
+            "type": "object",
+            "required": [
+              "flowDirection"
+            ],
+            "properties": {
+              "quantity": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Non-negative whole-number nomination quantity in the unit defined by nominationData.unit."
+              },
+              "flowDirection": {
+                "type": "string",
+                "enum": [
+                  "Entry",
+                  "Exit"
+                ],
+                "description": "Direction of the nominated hydrogen flow.",
+                "x-enumDescriptions": {
+                  "Entry": "Flow into the relevant network, system or balancing group.",
+                  "Exit": "Flow out of the relevant network, system or balancing group."
+                }
+              },
+              "quality": false,
+              "status": false,
+              "dispatchInstruction": false
+            }
+          }
+        ]
+      }
+    }
+  }
+}

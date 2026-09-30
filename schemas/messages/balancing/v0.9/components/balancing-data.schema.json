@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/balancing/v0.9/components/balancing-data.schema.json",
+  "title": "balancingData",
+  "description": "Balancing data for one cluster and one internal balancing group. It contains the data snapshot timestamp and one or more balancing number time series.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "clusterId",
+    "internalAccount",
+    "unit",
+    "asOfDate",
+    "balancingFigures"
+  ],
+  "properties": {
+    "clusterId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "description": "Unique identifier (name or ID) of the cluster to which the balancing group belongs."
+    },
+    "internalAccount": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Internal balancing group identifier for which the balancing figures are provided."
+    },
+    "unit": {
+      "type": "string",
+      "const": "kWh",
+      "description": "Unit of all balancing quantities. This format uses kWh."
+    },
+    "asOfDate": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+      "description": "UTC timestamp identifying the data snapshot used to create this message. It indicates the point in time up to which data was retrieved from or available in the source system. Data received or processed after this timestamp is not included in this message."
+    },
+    "balancingFigures": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Balancing number time series for the specified cluster, internal account and data snapshot.",
+      "items": {
+        "$ref": "https://h2-market.example/message-specifications/schemas/messages/balancing/v0.9/components/balancing-number.schema.json"
+      }
+    }
+  }
+}

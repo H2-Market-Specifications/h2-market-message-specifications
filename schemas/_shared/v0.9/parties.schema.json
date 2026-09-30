@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/parties.schema.json",
+  "title": "parties",
+  "description": "Sender and recipient of the message.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sender",
+    "recipient"
+  ],
+  "properties": {
+    "sender": {
+      "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/market-partner.schema.json"
+    },
+    "recipient": {
+      "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/market-partner.schema.json"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/market-partner.schema.json",
+  "title": "marketPartner",
+  "description": "Market partner participating in the message exchange.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "partnerCode",
+    "partnerRole"
+  ],
+  "properties": {
+    "partnerCode": {
+      "type": "string",
+      "pattern": "^[0-9]{13}$",
+      "description": "Market partner identifier."
+    },
+    "partnerRole": {
+      "type": "string",
+      "enum": [
+        "HydrogenGridOperator",
+        "HydrogenMarketAreaManager",
+        "BalancingGroupResponsibleParty",
+        "TransportCustomer",
+        "DataHub"
+      ],
+      "description": "Market role of the partner.",
+      "x-enumDescriptions": {
+        "HydrogenGridOperator": "Operator of a hydrogen transport or distribution network. The Hydrogen Grid Operator provides network access and capacity, operates the hydrogen network and supplies measurement and network data for balancing and market access processes.",
+        "HydrogenMarketAreaManager": "Market Area Manager responsible for central balancing and settlement functions in the hydrogen market area, including continuous balancing, calculation and provision of balancing group balances, operation of the Virtual Trading Point and operation of the Data Hub.",
+        "BalancingGroupResponsibleParty": "Market participant responsible towards the Hydrogen Market Area Manager for the management and balancing of a balancing group, including the submission of nominations and quantity declarations and the settlement of difference quantities.",
+        "TransportCustomer": "Market participant that requests hydrogen transport, concludes entry and exit contracts, books network capacity and transports hydrogen into or out of the hydrogen network.",
+        "DataHub": "Central technical communication and data exchange platform for market communication between the participating market roles."
+      }
+    }
+  }
+}

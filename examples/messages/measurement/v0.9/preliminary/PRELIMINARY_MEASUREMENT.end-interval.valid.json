@@ -1,0 +1,38 @@
+{
+  "message": {
+    "type": "MEASUREMENT",
+    "subType": "Preliminary",
+    "version": "0.9",
+    "documentNumber": "ABC123456789",
+    "creationDateTime": "2026-03-22T15:47:45Z"
+  },
+  "parties": {
+    "sender": {
+      "partnerCode": "9700123456789",
+      "partnerRole": "HydrogenGridOperator"
+    },
+    "recipient": {
+      "partnerCode": "9700987654321",
+      "partnerRole": "HydrogenMarketAreaManager"
+    }
+  },
+  "measurementData": {
+    "period": "2026-03-22T15:00:00Z/PT45M",
+    "granularity": "PT15M",
+    "location": {
+      "locationCode": "41262448134",
+      "locationType": "ExitPointEndConsumer"
+    },
+    "measurements": [
+      {
+        "unit": "kWh",
+        "quantityType": "EnergyH2",
+        "values": [
+          { "timestamp": "2026-03-22T15:00:00Z", "quantity": 100, "status": "measured" },
+          { "timestamp": "2026-03-22T15:15:00Z", "quantity": 120, "status": "measured" },
+          { "timestamp": "2026-03-22T15:30:00Z", "quantity": 95, "status": "estimated" }
+        ]
+      }
+    ]
+  }
+}

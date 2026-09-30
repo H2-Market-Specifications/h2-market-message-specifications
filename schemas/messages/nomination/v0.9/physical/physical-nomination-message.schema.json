@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/nomination/v0.9/physical/physical-nomination-message.schema.json",
+  "title": "h2PhysicalNominationMessage",
+  "description": "Message for transmitting physical nominations from a Balancing Group Responsible Party to the responsible Hydrogen Grid Operator.",
+  "allOf": [
+    {
+      "$ref": "../nomination-message-base.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "object",
+          "properties": {
+            "subType": {
+              "const": "Physical"
+            }
+          }
+        },
+        "parties": {
+          "type": "object",
+          "properties": {
+            "sender": {
+              "type": "object",
+              "properties": {
+                "partnerRole": {
+                  "const": "BalancingGroupResponsibleParty"
+                }
+              }
+            },
+            "recipient": {
+              "type": "object",
+              "properties": {
+                "partnerRole": {
+                  "const": "HydrogenGridOperator"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

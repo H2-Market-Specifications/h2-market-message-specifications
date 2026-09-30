@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/allocation/v0.9/allocation-message-base.schema.json",
+  "title": "h2AllocationMessage",
+  "description": "Base schema for ALLOCATION messages used to transmit allocated nomination, quantity declaration and measurement data.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "message",
+    "parties",
+    "allocationData"
+  ],
+  "properties": {
+    "message": {
+      "allOf": [
+        {
+          "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/message.schema.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "ALLOCATION"
+            },
+            "version": {
+              "const": "0.9"
+            }
+          }
+        }
+      ]
+    },
+    "parties": {
+      "allOf": [
+        {
+          "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/parties.schema.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "sender": {
+              "type": "object",
+              "properties": {
+                "partnerRole": {
+                  "enum": [
+                    "HydrogenGridOperator",
+                    "HydrogenMarketAreaManager"
+                  ]
+                }
+              }
+            },
+            "recipient": {
+              "type": "object",
+              "properties": {
+                "partnerRole": {
+                  "enum": [
+                    "HydrogenMarketAreaManager",
+                    "BalancingGroupResponsibleParty"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "allocationData": {
+      "$ref": "https://h2-market.example/message-specifications/schemas/messages/allocation/v0.9/components/allocationdata.schema.json"
+    }
+  }
+}

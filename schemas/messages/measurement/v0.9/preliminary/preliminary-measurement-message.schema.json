@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/measurement/v0.9/preliminary/preliminary-measurement-message.schema.json",
+  "title": "h2PreliminaryMeasurementMessage",
+  "description": "Message for transmitting preliminary quarter-hourly measurement data from a Hydrogen Grid Operator to the Hydrogen Market Area Manager.",
+  "allOf": [
+    {
+      "$ref": "../measurement-message-base.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "object",
+          "properties": {
+            "subType": {
+              "const": "Preliminary"
+            }
+          }
+        },
+        "parties": {
+          "type": "object",
+          "properties": {
+            "recipient": {
+              "type": "object",
+              "properties": {
+                "partnerRole": {
+                  "const": "HydrogenMarketAreaManager"
+                }
+              }
+            }
+          }
+        },
+        "measurementData": {
+          "type": "object",
+          "properties": {
+            "granularity": {
+              "const": "PT15M"
+            },
+            "measurements": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "unit": {
+                    "const": "kWh"
+                  },
+                  "quantityType": {
+                    "const": "EnergyH2"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

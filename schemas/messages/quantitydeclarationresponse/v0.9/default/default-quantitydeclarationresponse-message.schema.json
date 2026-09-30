@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/quantitydeclarationresponse/v0.9/default/default-quantitydeclarationresponse-message.schema.json",
+  "title": "h2DefaultQuantityDeclarationResponseMessage",
+  "description": "Default quantity declaration response message containing requested quantities, confirmed quantities and booked capacity.",
+  "allOf": [
+    {
+      "$ref": "../quantitydeclarationresponse-message-base.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "object",
+          "properties": {
+            "subType": {
+              "const": "Default"
+            }
+          }
+        },
+        "quantityDeclarationResponseData": {
+          "type": "object",
+          "properties": {
+            "timeSeries": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "granularity": {
+                    "enum": [
+                      "PT1H",
+                      "P1D"
+                    ]
+                  },
+                  "unit": {
+                    "enum": [
+                      "kWh",
+                      "kW"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

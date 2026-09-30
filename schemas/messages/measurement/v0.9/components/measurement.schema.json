@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h2-market.example/message-specifications/schemas/messages/measurement/v0.9/components/measurement.schema.json",
+  "title": "measurement",
+  "description": "Measured quantity represented as a time series for one location, measurement period and quantity type.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "unit",
+    "quantityType",
+    "values"
+  ],
+  "properties": {
+    "unit": {
+      "type": "string",
+      "enum": [
+        "kWh",
+        "molPercent"
+      ],
+      "description": "Unit of the measured quantity. kWh represents hydrogen energy and molPercent represents hydrogen content."
+    },
+    "quantityType": {
+      "type": "string",
+      "enum": [
+        "EnergyH2",
+        "HydrogenContent"
+      ],
+      "description": "Type of measured quantity.",
+      "x-enumDescriptions": {
+        "EnergyH2": "Measured hydrogen energy.",
+        "HydrogenContent": "Hydrogen content of the measured gas."
+      }
+    },
+    "values": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Chronologically ordered time-series values. Each value represents the measured quantity for one interval. The interval duration is defined by measurementData.granularity.",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "https://h2-market.example/message-specifications/schemas/_shared/v0.9/time-series-value.schema.json"
+          },
+          {
+            "type": "object",
+            "required": [
+              "status"
+            ],
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "measured",
+                  "estimated",
+                  "replaced",
+                  "missing"
+                ],
+                "description": "Origin or processing status of the measurement value.",
+                "x-enumDescriptions": {
+                  "measured": "The value originates from an actual measurement.",
+                  "estimated": "The value was estimated or calculated because no directly usable measurement was available.",
+                  "replaced": "The original value was unavailable, invalid or unusable and was replaced by the quantity declaration.",
+                  "missing": "No valid value is available for the relevant interval."
+                }
+              },
+              "flowDirection": false
+            }
+          }
+        ]
+      }
+    }
+  }
+}
