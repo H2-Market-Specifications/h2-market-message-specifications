@@ -1,8 +1,5 @@
 # H2 Market Message Specifications v0.9
 
-## H₂-Marktnachrichten und Datenformate für die Wasserstoffmarktkommunikation (Deutsch)
-
-Dieses Repository veröffentlicht H₂-Marktnachrichten, Datenformate und JSON-Schemas für die Wasserstoffmarktkommunikation in Deutschland. Es umfasst unter anderem Formate für Nominierungen, Messwerte, Allokation, Matching, Bilanzierung und Mengenerklärungen sowie Prüfregeln und gültige und ungültige Testbeispiele. Die maschinenlesbaren Spezifikationen unterstützen Marktteilnehmer, Softwarehersteller und Entwickler bei Implementierung und Validierung. Veröffentlichte Version: 0.9.
 
 This repository contains JSON Schemas, examples and validation rules for hydrogen market messages.
 
